@@ -1,0 +1,78 @@
+body {
+    background: linear-gradient(to top, #ffe6e6, #ffffff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Cursive', sans-serif;
+    overflow: hidden;
+}
+
+.bouquet {
+    position: relative;
+    width: 250px;
+    height: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.6s ease;
+}
+
+.flower {
+    width: 50px;
+    height: 50px;
+    background: radial-gradient(circle at 30% 30%, #ff4d4d, #cc0000);
+    border-radius: 50%;
+    margin: 5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(calc(var(--i) * 72deg)) translateY(-80px) scale(0);
+    transition: transform 0.8s ease, box-shadow 0.8s ease;
+}
+
+.stem {
+    width: 8px;
+    height: 180px;
+    background-color: green;
+    position: absolute;
+    bottom: 0;
+    transform: rotate(-10deg);
+    border-radius: 4px;
+}
+
+.stem.second {
+    transform: rotate(10deg);
+    background-color: darkgreen;
+}
+
+.message {
+    position: absolute;
+    top: -70px;
+    opacity: 0;
+    font-size: 26px;
+    color: #b30000;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    text-align: center;
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    transform: translateY(20px);
+    pointer-events: none;
+    font-weight: bold;
+}
+
+.bouquet.hovered .flower {
+    transform: translate(-50%, -50%) rotate(calc(var(--i) * 72deg)) translateY(-80px) scale(1);
+    box-shadow: 0 0 10px rgba(255, 77, 77, 0.8), 0 0 20px rgba(255, 77, 77, 0.6);
+}
+
+.bouquet.hovered .message {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.bouquet.hovered {
+    transform: scale(1.05);
+}
